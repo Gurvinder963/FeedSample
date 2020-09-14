@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.assignment.kotlinmvvm.DataModel.FeedRowsModel
-
+import com.assignment.kotlinmvvm.MainActivity
 
 
 import com.bumptech.glide.Glide
-import com.feedsample.MainActivity
+
 import com.feedsample.R
 import kotlinx.android.synthetic.main.items.view.*
 
