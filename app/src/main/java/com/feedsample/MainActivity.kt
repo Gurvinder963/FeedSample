@@ -34,7 +34,15 @@ class MainActivity : AppCompatActivity() {
         recyclerView.hasFixedSize()
 
 
+
+        if (isNetworkConnected()) {
             callFeedApi()
+        } else {
+            AlertDialog.Builder(this).setTitle("No Internet Connection")
+                .setMessage("Please check your internet connection and try again")
+                .setPositiveButton(android.R.string.ok) { _, _ -> }
+                .setIcon(android.R.drawable.ic_dialog_alert).show()
+        }
 
 
     }
@@ -54,7 +62,27 @@ class MainActivity : AppCompatActivity() {
         })
 
     }
+    private fun isNetworkConnected(): Boolean {
 
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            connectivityManager.activeNetwork
+        } else {
+            TODO("VERSION.SDK_INT < M")
+        }
+        val networkCapabilities = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            connectivityManager.getNetworkCapabilities(activeNetwork)
+        } else {
+            TODO("VERSION.SDK_INT < LOLLIPOP")
+        }
+
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            networkCapabilities != null &&
+                    networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+        } else {
+            TODO("VERSION.SDK_INT < LOLLIPOP")
+        }
+    }
 
 }
 
