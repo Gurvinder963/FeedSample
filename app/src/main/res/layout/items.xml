@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="#c3c3c3"
+    android:layout_margin="5dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="Muchdocs need sxcanda after hacking , says magzine"
+        android:layout_marginTop="8dp"
+        android:textColor="#0000FF"
+       />
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/tvTitle"
+
+    android:layout_marginBottom="10dp"
+    >
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:text="NEW YORK :The British phone - hacking scandal brought semmring scandal"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_alignParentLeft="true"
+        android:layout_toStartOf="@+id/ivItemImage"
+        android:ellipsize="end"
+        android:textColor="#000"
+        android:maxLines="5"
+        />
+
+    <ImageView
+        android:id="@+id/ivItemImage"
+        android:layout_width="130dp"
+        android:layout_height="70dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_alignParentEnd="true"
+        ></ImageView>
+</RelativeLayout>
+
+</RelativeLayout>
