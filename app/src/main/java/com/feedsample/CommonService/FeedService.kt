@@ -1,6 +1,7 @@
 package com.feedsample.CommonService
 
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.assignment.kotlinmvvm.DataModel.FeedModel
 import com.feedsample.interfaces.ApiInterface
@@ -32,6 +33,25 @@ class FeedService {
 
     fun loadFeedData(): MutableLiveData<FeedModel>? {
 
-     return null
+
+        val retrofitCall  = create().feedRepositories()
+
+        retrofitCall.enqueue(object : Callback<FeedModel> {
+            override fun onFailure(call: Call<FeedModel>, t: Throwable?) {
+                Log.e("on Failure :", "retrofit error")
+            }
+
+            override fun onResponse(call: Call<FeedModel>, response: retrofit2.Response<FeedModel>) {
+
+                val list  = response.body()
+
+
+                liveUserResponse.value = list
+
+            }
+
+        })
+
+        return liveUserResponse
     }
 }
