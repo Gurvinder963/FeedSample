@@ -37,7 +37,9 @@ class FeedAdapter(var context: MainActivity, var mFeedList: ArrayList<FeedRowsMo
                     .load(media)
                     .into(  holder.ivItemImage)
         }
-
+        else{
+            holder.ivItemImage.visibility=View.GONE
+        }
 
     }
 
